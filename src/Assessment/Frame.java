@@ -1,16 +1,14 @@
 package Assessment;
 
-import java.awt.*;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EtchedBorder;
+import java.awt.*;
 
 
 public class Frame extends javax.swing.JFrame {
 
-    private JPanel conversion_panel;
-    private JComboBox<String> box;
+    private final JPanel conversion_panel;
+    private final JComboBox<String> box;
 
     private Frame() {
         setSize(450, 560);
@@ -43,21 +41,11 @@ public class Frame extends javax.swing.JFrame {
         box.addActionListener(e -> {
             conversion_panel.removeAll();
             switch (box.getSelectedIndex()) {
-                case 0:
-                    conversion_panel.add(new Length());
-                    break;
-                case 1:
-                    conversion_panel.add(new Temperature());
-                    break;
-                case 2:
-                    conversion_panel.add(new Weight());
-                    break;
-                case 3:
-                    conversion_panel.add(new Time());
-                    break;
-                case 4:
-                    conversion_panel.add(new Currency());
-                    break;
+                case 0 -> conversion_panel.add(new Length());
+                case 1 -> conversion_panel.add(new Temperature());
+                case 2 -> conversion_panel.add(new Weight());
+                case 3 -> conversion_panel.add(new Time());
+                case 4 -> conversion_panel.add(new Currency());
             }
             conversion_panel.revalidate();
             conversion_panel.repaint();

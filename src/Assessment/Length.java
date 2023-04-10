@@ -1,14 +1,9 @@
 package Assessment;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 class Length extends JPanel {
     private boolean lookForChange = true;
@@ -21,7 +16,6 @@ class Length extends JPanel {
                 if (Length.this.lookForChange) {
                     Length.this.convert(e);
                 }
-
             }
 
             public void removeUpdate(DocumentEvent e) {
@@ -31,7 +25,6 @@ class Length extends JPanel {
                 if (Length.this.lookForChange) {
                     Length.this.convert(e);
                 }
-
             }
         };
         //adding units of Length
@@ -77,31 +70,14 @@ class Length extends JPanel {
             }
 
             switch (i) {
-                case 0:
-                    toMetres = input;
-                    break;
-                case 1:
-                    toMetres = input * 1000.0D;
-                    break;
-                case 2:
-                    toMetres = input / 100.0D;
-                    break;
-                case 3:
-                    toMetres = input / 1000.0D;
-                    break;
-
-                case 4:
-                    toMetres = input * 1609.34D;
-                    break;
-                case 5:
-                    toMetres = input * 0.9144D;
-                    break;
-                case 6:
-                    toMetres = input * 0.3048D;
-                    break;
-                case 7:
-                    toMetres = input * 0.0254D;
-                    break;
+                case 0 -> toMetres = input;
+                case 1 -> toMetres = input * 1000.0D;
+                case 2 -> toMetres = input / 100.0D;
+                case 3 -> toMetres = input / 1000.0D;
+                case 4 -> toMetres = input * 1609.34D;
+                case 5 -> toMetres = input * 0.9144D;
+                case 6 -> toMetres = input * 0.3048D;
+                case 7 -> toMetres = input * 0.0254D;
             }
 
             double[] valueLength = new double[17];
@@ -115,7 +91,6 @@ class Length extends JPanel {
             valueLength[6] = toMetres / 0.3048D;
             valueLength[7] = toMetres / 0.0254D;
 
-
             for (int j = 0; j < 8; ++j) {
                 if (j != i) {
                     this.tf[j].setText(Double.toString(valueLength[j]));
@@ -126,6 +101,5 @@ class Length extends JPanel {
         } catch (Exception var10) {
             var10.printStackTrace();
         }
-
     }
 }

@@ -1,14 +1,9 @@
 package Assessment;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 class Currency extends JPanel {
     private boolean lookForChange = true;
@@ -21,7 +16,6 @@ class Currency extends JPanel {
                 if (Currency.this.lookForChange) {
                     Currency.this.convert(e);
                 }
-
             }
 
             public void removeUpdate(DocumentEvent e) {
@@ -31,7 +25,6 @@ class Currency extends JPanel {
                 if (Currency.this.lookForChange) {
                     Currency.this.convert(e);
                 }
-
             }
         };
         // adding different units of currencies
@@ -58,7 +51,6 @@ class Currency extends JPanel {
             this.add(this.tf[i], gc);
             this.tf[i].getDocument().addDocumentListener(dl);
         }
-
     }
 
     //algorithm of converting currencies
@@ -77,18 +69,10 @@ class Currency extends JPanel {
             }
 
             switch (i) {
-                case 0:
-                    toCurr = input;
-                    break;
-                case 1:
-                    toCurr = input * 1.4806D;
-                    break;
-                case 2:
-                    toCurr = input / 64.7713D;
-                    break;
-                case 3:
-                    toCurr = input * 0.9159D;
-                    break;
+                case 0 -> toCurr = input;
+                case 1 -> toCurr = input * 1.4806D;
+                case 2 -> toCurr = input / 64.7713D;
+                case 3 -> toCurr = input * 0.9159D;
             }
 
             double[] valueCurr = new double[4];
@@ -108,6 +92,5 @@ class Currency extends JPanel {
         } catch (Exception var10) {
             var10.printStackTrace();
         }
-
     }
 }

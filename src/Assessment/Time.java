@@ -1,14 +1,9 @@
 package Assessment;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 class Time extends JPanel {
     private boolean lookForChange = true;
@@ -21,7 +16,6 @@ class Time extends JPanel {
                 if (Time.this.lookForChange) {
                     Time.this.convert(e);
                 }
-
             }
 
             public void removeUpdate(DocumentEvent e) {
@@ -31,7 +25,6 @@ class Time extends JPanel {
                 if (Time.this.lookForChange) {
                     Time.this.convert(e);
                 }
-
             }
         };
 
@@ -79,35 +72,16 @@ class Time extends JPanel {
             }
 
             switch (i) {
-                case 0:
-                    toSec = input * Math.pow(10.0D, -3.0D);
-                    break;
-                case 1:
-                    toSec = input;
-                    break;
-                case 2:
-                    toSec = input * 60.0D;
-                    break;
-                case 3:
-                    toSec = input * 3600.0D;
-                    break;
-                case 4:
-                    toSec = input * 86400.0D;
-                    break;
-                case 5:
-                    toSec = input * 604800.0D;
-                    break;
-                case 6:
-                    toSec = input * 2.63D * Math.pow(10.0D, 6.0D);
-                    break;
-                case 7:
-                    toSec = input * 3.156D * Math.pow(10.0D, 7.0D);
-                    break;
-                case 8:
-                    toSec = input * 3.156D * Math.pow(10.0D, 8.0D);
-                    break;
-                case 9:
-                    toSec = input * 3.156D * Math.pow(10.0D, 9.0D);
+                case 0 -> toSec = input * Math.pow(10.0D, -3.0D);
+                case 1 -> toSec = input;
+                case 2 -> toSec = input * 60.0D;
+                case 3 -> toSec = input * 3600.0D;
+                case 4 -> toSec = input * 86400.0D;
+                case 5 -> toSec = input * 604800.0D;
+                case 6 -> toSec = input * 2.63D * Math.pow(10.0D, 6.0D);
+                case 7 -> toSec = input * 3.156D * Math.pow(10.0D, 7.0D);
+                case 8 -> toSec = input * 3.156D * Math.pow(10.0D, 8.0D);
+                case 9 -> toSec = input * 3.156D * Math.pow(10.0D, 9.0D);
             }
 
             double[] valueSec = new double[10];
@@ -133,6 +107,5 @@ class Time extends JPanel {
         } catch (Exception var10) {
             var10.printStackTrace();
         }
-
     }
 }

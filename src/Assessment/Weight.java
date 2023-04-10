@@ -1,14 +1,9 @@
 package Assessment;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 class Weight extends JPanel {
     private boolean lookForChange = true;
@@ -21,7 +16,6 @@ class Weight extends JPanel {
                 if (Weight.this.lookForChange) {
                     Weight.this.convert(e);
                 }
-
             }
 
             public void removeUpdate(DocumentEvent e) {
@@ -31,7 +25,6 @@ class Weight extends JPanel {
                 if (Weight.this.lookForChange) {
                     Weight.this.convert(e);
                 }
-
             }
         };
 
@@ -59,7 +52,6 @@ class Weight extends JPanel {
             this.add(this.tf[i], gc);
             this.tf[i].getDocument().addDocumentListener(dl);
         }
-
     }
 
     //algorithm of converting weight
@@ -79,23 +71,12 @@ class Weight extends JPanel {
             }
 
             switch (i) {
-                case 0:
-                    toKg = input * 1000.0D;
-                    break;
-                case 1:
-                    toKg = input;
-                    break;
-                case 2:
-                    toKg = input * 0.001D;
-                    break;
-                case 3:
-                    toKg = input * Math.pow(10.0D, -6.0D);
-                    break;
-                case 4:
-                    toKg = input * 0.453592D;
-                    break;
-                case 5:
-                    toKg = input * 0.0283495D;
+                case 0 -> toKg = input * 1000.0D;
+                case 1 -> toKg = input;
+                case 2 -> toKg = input * 0.001D;
+                case 3 -> toKg = input * Math.pow(10.0D, -6.0D);
+                case 4 -> toKg = input * 0.453592D;
+                case 5 -> toKg = input * 0.0283495D;
             }
 
             double[] valueWeight = new double[6];
@@ -117,6 +98,5 @@ class Weight extends JPanel {
         } catch (Exception var10) {
             var10.printStackTrace();
         }
-
     }
 }

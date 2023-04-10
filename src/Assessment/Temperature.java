@@ -1,14 +1,9 @@
 package Assessment;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 class Temperature extends JPanel {
     private boolean lookForChange = true;
@@ -21,7 +16,6 @@ class Temperature extends JPanel {
                 if (Temperature.this.lookForChange) {
                     Temperature.this.convert(e);
                 }
-
             }
 
             public void removeUpdate(DocumentEvent e) {
@@ -31,7 +25,6 @@ class Temperature extends JPanel {
                 if (Temperature.this.lookForChange) {
                     Temperature.this.convert(e);
                 }
-
             }
         };
 
@@ -43,7 +36,7 @@ class Temperature extends JPanel {
         gc.insets = new Insets(2, 5, 2, 5);
         gc.anchor = 11;
 
-        for(int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 3; ++i) {
             JLabel[] labels = new JLabel[7];
             labels[i] = new JLabel(str[i]);
             labels[i].setPreferredSize(new Dimension(185, 20));
@@ -67,7 +60,7 @@ class Temperature extends JPanel {
         double toCels = 0.0D;
 
         try {
-            JTextField t = (JTextField)e.getDocument().getProperty("owner");
+            JTextField t = (JTextField) e.getDocument().getProperty("owner");
             if (t.getText().equals("")) {
                 throw new Exception();
             }
@@ -75,19 +68,13 @@ class Temperature extends JPanel {
             double input = Double.parseDouble(t.getText());
 
             int i;
-            for(i = 0; i < 3 && !t.equals(this.tf[i]); ++i) {
+            for (i = 0; i < 3 && !t.equals(this.tf[i]); ++i) {
             }
 
-            switch(i) {
-                case 0:
-                    toCels = input;
-                    break;
-                case 1:
-                    toCels = input - 273.15D;
-                    break;
-                case 2:
-                    toCels = (input - 32.0D) * 5.0D / 9.0D;
-                    break;
+            switch (i) {
+                case 0 -> toCels = input;
+                case 1 -> toCels = input - 273.15D;
+                case 2 -> toCels = (input - 32.0D) * 5.0D / 9.0D;
             }
 
             double[] valueTemp = new double[3];
@@ -96,7 +83,7 @@ class Temperature extends JPanel {
             valueTemp[1] = toCels + 273.15D;
             valueTemp[2] = toCels * 9.0D / 5.0D + 32.0D;
 
-            for(int j = 0; j < 3; ++j) {
+            for (int j = 0; j < 3; ++j) {
                 if (j != i) {
                     this.tf[j].setText(Double.toString(valueTemp[j]));
                 }
